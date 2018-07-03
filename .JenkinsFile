@@ -29,6 +29,7 @@ node {
             }
    
    stage('Approval') {
-      input 'Proceed to Production?'
+      input 'Work is done!'
+   }
    }
 }
