@@ -46,7 +46,7 @@
         user: admin
         password: admin
         state: present
-        name: "{{ app_name }}_vs"
+        name: "{{ app_name }}_vs_https"
         all_profiles:
           - http_w_xff
           - websecurity
