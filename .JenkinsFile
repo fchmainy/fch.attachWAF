@@ -10,7 +10,7 @@ node {
             // Setting up environment variables
             echo "setting up variables..."
             env.appName = params.appName
-            sh 'sudo mkdir /etc/ansible/roles/fch.attachWAF'
+            sh 'sudo mkdir -p /etc/ansible/roles/fch.attachWAF'
             sh 'sudo cp -fR * /etc/ansible/roles/fch.attachWAF'
    }
    
