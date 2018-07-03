@@ -11,7 +11,7 @@ node {
             echo "setting up variables..."
             env.appName = params.appName
             sh 'sudo mkdir /etc/ansible/roles/fch.attachWAF'
-            sh 'cp -fR * /etc/ansible/roles/fch.attachWAF'
+            sh 'sudo cp -fR * /etc/ansible/roles/fch.attachWAF'
    }
    
    stage('Attach ASM Policy') {
