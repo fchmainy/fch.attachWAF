@@ -26,7 +26,7 @@ node {
                     extraVars: [
                         bigip_username: USERNAME,
                         bigip_password: PASSWORD,
-                        appName: appName
+                        app_name: appName
                 ])
             }
    
