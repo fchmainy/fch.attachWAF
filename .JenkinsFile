@@ -10,6 +10,7 @@ node {
             // Setting up environment variables
             echo "setting up variables..."
             env.appName = params.appName
+            sh 'cp -R fch.attachWAF /etc/ansible/roles/'
    }
    
    stage('Attach ASM Policy') {
