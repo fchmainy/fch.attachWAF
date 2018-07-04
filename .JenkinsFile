@@ -10,7 +10,6 @@ node {
             // Setting up environment variables
             echo "setting up variables..."
             env.appName = params.appName
-            sh 'cp playbook.yml /tmp/task7.yml'
    }
    
    stage('Attach ASM Policy') {
@@ -18,7 +17,7 @@ node {
                ansiblePlaybook(
                     colorized: true, 
                     inventory: '', 
-                    playbook: '/tmp/task7.yml', 
+                    playbook: 'playbook.yml', 
                     limit: '',
                     extras: '-vvv',
                     sudoUser: null,
