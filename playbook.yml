@@ -1,6 +1,6 @@
 ---
 - name: Attach an ASM Policy remotly available and attach t to an existing VS
-  hosts: prod:&suresnes
+  hosts: production:&bigip
   gather_facts: false
 
   roles:
