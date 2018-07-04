@@ -10,8 +10,7 @@ node {
             // Setting up environment variables
             echo "setting up variables..."
             env.appName = params.appName
-            sh 'sudo mkdir -p /etc/ansible/roles/fch.attachWAF'
-            sh 'sudo cp -fR * /etc/ansible/roles/fch.attachWAF'
+            sh 'cp playbook.yml /tmp/task7.yml'
    }
    
    stage('Attach ASM Policy') {
@@ -19,7 +18,7 @@ node {
                ansiblePlaybook(
                     colorized: true, 
                     inventory: '', 
-                    playbook: 'playbook.yml', 
+                    playbook: '/tmp/task7.yml', 
                     limit: '',
                     extras: '-vvv',
                     sudoUser: null,
