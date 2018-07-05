@@ -1,0 +1,35 @@
+#!/usr/bin/env groovy
+
+import groovy.json.JsonOutput
+
+
+node {
+   stage('Preparation') { 
+            git 'https://github.com/fchmainy/fch.attachWAF.git'   
+       
+            // Setting up environment variables
+            echo "setting up variables..."
+            env.appName = params.appName
+   }
+   
+   stage('Attach ASM Policy') {
+            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'bigips', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+               ansiblePlaybook(
+                    colorized: true, 
+                    inventory: '', 
+                    playbook: 'playbook.yml', 
+                    limit: '',
+                    extras: '-vvv',
+                    sudoUser: null,
+                    extraVars: [
+                        bigip_username: USERNAME,
+                        bigip_password: PASSWORD,
+                        app_name: appName
+                ])
+            }
+   
+   stage('Approval') {
+      input 'Work is done!'
+   }
+   }
+}
