@@ -62,6 +62,8 @@
         all_profiles:
           - http
           - websecurity
+          - name: clientssl
+            context: client-side 
         policies:
           - "{{ app_name }}_policy"
         validate_certs: "{{ validate_certs }}"
